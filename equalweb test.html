@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <title>Test</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Lato);
+      @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+      body {
+        font-family: "Lato", sans-serif;
+        color: #fff;
+        background: #322f30;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      #main {
+        position: relative;
+        margin: auto;
+        padding: 10px;
+      }
+      .wrapper {
+        margin: 5px;
+        border: white 2px solid;
+      }
+      .wrapper > i {
+        position: relative;
+        margin: auto;
+        padding: 10px;
+        color: yellow;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main"></div>
+    <script>
+      (function () {
+        var main = document.querySelector("#main");
+        var divCount = Math.floor(Math.random() * 100);
+        for (let i = 0; i < divCount; i++) {
+          var stars = Math.floor(Math.random() * 5);
+          var isHalf = Math.floor(Math.random() * 2) > 0;
+          var div = document.createElement("DIV");
+          div.classList.add("wrapper");
+          var starsEle = [];
+          while (!stars) {
+            stars = Math.floor(Math.random() * 5);
+          }
+          for (let x = 0; x < stars; x++) {
+            starsEle.push('<i class="fa fa-star"></i>');
+          }
+          if (stars < 5 && isHalf) {
+            starsEle.push('<i class="fa fa-star-half-o"></i>');
+          }
+          div.innerHTML = starsEle.join("");
+          main.appendChild(div);
+        }
+      })();
+    </script>
+  </body>
+</html>
